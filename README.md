@@ -1,7 +1,5 @@
 # Thegoldteam
 
-[Google Drive Folder](https://drive.google.com/drive/folders/1koWRwsnYRZzNy7liF3HamgUxwZuhweS3?usp=sharing)
-
 **GOAL:  Create program with ability to use phone as a webcam**
 
 Program will work using a mobile app and a desktop app.  The mobile app interfaces with the device camera and microphone to receive feeds, then packages and streams a/v feed to desktop app via UDP.  Desktop app unpacks feed and streams feed to virtual hardware that can be used by third-party software.
