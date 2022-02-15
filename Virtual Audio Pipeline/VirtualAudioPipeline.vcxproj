@@ -1,0 +1,323 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="adapter.cpp" />
+    <ClCompile Include="common.cpp" />
+    <ClCompile Include="hw.cpp" />
+    <ClCompile Include="kshelper.cpp" />
+    <ClCompile Include="topo.cpp" />
+    <ClCompile Include="wave.cpp" />
+    <ClCompile Include="wavestream.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="common.h" />
+    <ClInclude Include="hw.h" />
+    <ClInclude Include="kshelper.h" />
+    <ClInclude Include="sonicsaudio.h" />
+    <ClInclude Include="topo.h" />
+    <ClInclude Include="toptable.h" />
+    <ClInclude Include="wave.h" />
+    <ClInclude Include="wavestream.h" />
+    <ClInclude Include="wavtable.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <FilesToPackage Include="$(TargetPath)" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      <PackageRelativeDirectory>
+      </PackageRelativeDirectory>
+    </FilesToPackage>
+    <FilesToPackage Include="$(TargetPath)" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      <PackageRelativeDirectory>
+      </PackageRelativeDirectory>
+    </FilesToPackage>
+    <FilesToPackage Include="$(TargetPath)" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      <PackageRelativeDirectory>
+      </PackageRelativeDirectory>
+    </FilesToPackage>
+    <FilesToPackage Include="$(TargetPath)" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      <PackageRelativeDirectory>
+      </PackageRelativeDirectory>
+    </FilesToPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Inf Include="vrtaupipe.inf" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{6494932B-86BA-48B1-B761-46726FB430D9}</ProjectGuid>
+    <WindowsTargetPlatformVersion>$(LatestTargetPlatformVersion)</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Driver</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>
+    </CharacterSet>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
+    <DriverType>ExportDriver</DriverType>
+    <TargetVersion>
+    </TargetVersion>
+    <DriverTargetPlatform>Universal</DriverTargetPlatform>
+    <SupportsPackaging>
+    </SupportsPackaging>
+    <KMDF_VERSION_MAJOR>1</KMDF_VERSION_MAJOR>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Driver</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>
+    </CharacterSet>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
+    <DriverType>KMDF</DriverType>
+    <TargetVersion>
+    </TargetVersion>
+    <DriverTargetPlatform>Desktop</DriverTargetPlatform>
+    <SupportsPackaging>
+    </SupportsPackaging>
+    <KMDF_VERSION_MAJOR>1</KMDF_VERSION_MAJOR>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
+    <CharacterSet>
+    </CharacterSet>
+    <DriverType>WDM</DriverType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <TargetVersion>
+    </TargetVersion>
+    <DriverTargetPlatform>Universal</DriverTargetPlatform>
+    <SupportsPackaging>
+    </SupportsPackaging>
+    <KMDF_VERSION_MAJOR>1</KMDF_VERSION_MAJOR>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
+    <CharacterSet>
+    </CharacterSet>
+    <DriverType>KMDF</DriverType>
+    <ConfigurationType>Driver</ConfigurationType>
+    <TargetVersion>
+    </TargetVersion>
+    <DriverTargetPlatform>Desktop</DriverTargetPlatform>
+    <SupportsPackaging>
+    </SupportsPackaging>
+    <KMDF_VERSION_MAJOR>1</KMDF_VERSION_MAJOR>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <GenerateManifest>false</GenerateManifest>
+    <TargetName>vrtaupipe</TargetName>
+    <TargetExt>.sys</TargetExt>
+    <LibraryPath>$(DDK_LibraryPath_DDKPlatform);$(LibraryPath)</LibraryPath>
+    <ExcludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(MSBuild_ExecutablePath);$(VC_LibraryPath_x86);</ExcludePath>
+    <OutDir>$(SolutionDir)$(ConfigurationName)\</OutDir>
+    <IntDir>$(ConfigurationName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <GenerateManifest>false</GenerateManifest>
+    <TargetName>vrtaupipe</TargetName>
+    <TargetExt>.sys</TargetExt>
+    <LibraryPath>$(DDK_LibraryPath_DDKPlatform);$(LibraryPath)</LibraryPath>
+    <ExcludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(MSBuild_ExecutablePath);$(VC_LibraryPath_x86);</ExcludePath>
+    <OutDir>$(SolutionDir)$(ConfigurationName)\</OutDir>
+    <IntDir>$(ConfigurationName)\</IntDir>
+    <EnableInf2cat>true</EnableInf2cat>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <GenerateManifest>false</GenerateManifest>
+    <TargetExt>.sys</TargetExt>
+    <LibraryPath>$(DDK_LibraryPath_DDKPlatform);$(LibraryPath)</LibraryPath>
+    <ExcludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(MSBuild_ExecutablePath);$(VC_LibraryPath_x64);</ExcludePath>
+    <TargetName>vrtaupipe</TargetName>
+    <IntDir>$(Platform)\$(ConfigurationName)\</IntDir>
+    <OutDir>$(SolutionDir)$(Platform)\$(ConfigurationName)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <GenerateManifest>false</GenerateManifest>
+    <TargetExt>.sys</TargetExt>
+    <LibraryPath>$(DDK_LibraryPath_DDKPlatform);$(LibraryPath)</LibraryPath>
+    <ExcludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(MSBuild_ExecutablePath);$(VC_LibraryPath_x64);</ExcludePath>
+    <TargetName>vrtaupipe</TargetName>
+    <IntDir>$(Platform)\$(ConfigurationName)\</IntDir>
+    <OutDir>$(SolutionDir)$(Platform)\$(ConfigurationName)\</OutDir>
+    <ExecutablePath>$(ExecutablePath);$(WDKContentRoot)bin\x64;$(WDKContentRoot)tools\tracing\x64</ExecutablePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(WDKPATH)\inc\ddk;$(WDKPATH)\inc\api;$(WDKPATH)\inc\crt;.\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;WINNT;_CONSOLE;_X86_;_DDK_;_DEBUG;DBG=1;PC_IMPLEMENTATION;DEBUG_LEVEL=DEBUGLVL_TERSE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <CallingConvention>StdCall</CallingConvention>
+      <Optimization>Disabled</Optimization>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>false</TreatWarningAsError>
+    </ClCompile>
+    <Link>
+      <OutputFile>$(OutDir)\$(TargetFileName)</OutputFile>
+      <RandomizedBaseAddress>
+      </RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <AdditionalDependencies>%(AdditionalDependencies);$(KernelBufferOverflowLib);$(DDK_LIB_PATH)ntoskrnl.lib;$(DDK_LIB_PATH)hal.lib;$(DDK_LIB_PATH)wmilib.lib;$(KMDF_LIB_PATH)$(KMDF_VER_PATH)\WdfLdr.lib;$(KMDF_LIB_PATH)$(KMDF_VER_PATH)\WdfDriverEntry.lib;$(DDK_LIB_PATH)\portcls.lib;$(DDK_LIB_PATH)\stdunk.lib;$(DDK_LIB_PATH)\libcntpr.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(WDKPATH)\lib\WIN7\i386;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <SubSystem>Native</SubSystem>
+      <Driver>WDM</Driver>
+      <EntryPointSymbol>DriverEntry</EntryPointSymbol>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(WDKPATH)\inc\ddk;$(WDKPATH)\inc\api;$(WDKPATH)\inc\crt;.\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;WINNT;_CONSOLE;_DDK_;PC_IMPLEMENTATION;_NDEBUG;DBG=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <CallingConvention>StdCall</CallingConvention>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <StringPooling>true</StringPooling>
+      <Optimization>Full</Optimization>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>false</TreatWarningAsError>
+    </ClCompile>
+    <Link>
+      <OutputFile>$(OutDir)\$(TargetFileName)</OutputFile>
+      <OptimizeReferences>true</OptimizeReferences>
+      <RandomizedBaseAddress>
+      </RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <AdditionalDependencies>%(AdditionalDependencies);$(KernelBufferOverflowLib);$(DDK_LIB_PATH)ntoskrnl.lib;$(DDK_LIB_PATH)hal.lib;$(DDK_LIB_PATH)wmilib.lib;$(KMDF_LIB_PATH)$(KMDF_VER_PATH)\WdfLdr.lib;$(KMDF_LIB_PATH)$(KMDF_VER_PATH)\WdfDriverEntry.lib;$(DDK_LIB_PATH)\portcls.lib;$(DDK_LIB_PATH)\stdunk.lib;$(DDK_LIB_PATH)\libcntpr.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(WDKPATH)\lib\WIN7\i386;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <SubSystem>Native</SubSystem>
+      <Driver>Driver</Driver>
+      <EntryPointSymbol>DriverEntry</EntryPointSymbol>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(WDKPATH)\inc\ddk;$(WDKPATH)\inc\api;$(WDKPATH)\inc\crt;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_CONSOLE;_AMD64_;_DDK_;_DEBUG;DBG=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <CallingConvention>StdCall</CallingConvention>
+      <Optimization>Disabled</Optimization>
+      <TreatWarningAsError>false</TreatWarningAsError>
+    </ClCompile>
+    <Link>
+      <OutputFile>$(OutDir)\$(ProjectName).sys</OutputFile>
+      <RandomizedBaseAddress>
+      </RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <AdditionalDependencies>%(AdditionalDependencies);$(KernelBufferOverflowLib);$(DDK_LIB_PATH)ntoskrnl.lib;$(DDK_LIB_PATH)hal.lib;$(DDK_LIB_PATH)wmilib.lib;$(KMDF_LIB_PATH)$(KMDF_VER_PATH)\WdfLdr.lib;$(KMDF_LIB_PATH)$(KMDF_VER_PATH)\WdfDriverEntry.lib;$(DDK_LIB_PATH)\portcls.lib;$(DDK_LIB_PATH)\stdunk.lib;$(DDK_LIB_PATH)\libcntpr.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(WDKPATH)\lib\WIN7\amd64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <SubSystem>Native</SubSystem>
+      <Driver>Driver</Driver>
+      <EntryPointSymbol>DriverEntry</EntryPointSymbol>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(WDKPATH)\inc\ddk;$(WDKPATH)\inc\api;$(WDKPATH)\inc\crt;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_CONSOLE;_AMD64_;_DDK_;WINNT;_X64_;PC_IMPLEMENTATION;_NDEBUG;DBG=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <CallingConvention>StdCall</CallingConvention>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <StringPooling>true</StringPooling>
+      <Optimization>Full</Optimization>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
+    </ClCompile>
+    <Link>
+      <OutputFile>$(OutDir)\$(TargetFileName)</OutputFile>
+      <OptimizeReferences>true</OptimizeReferences>
+      <RandomizedBaseAddress>
+      </RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <AdditionalDependencies>%(AdditionalDependencies);$(KernelBufferOverflowLib);$(DDK_LIB_PATH)ntoskrnl.lib;$(DDK_LIB_PATH)hal.lib;$(DDK_LIB_PATH)wmilib.lib;$(KMDF_LIB_PATH)$(KMDF_VER_PATH)\WdfLdr.lib;$(KMDF_LIB_PATH)$(KMDF_VER_PATH)\WdfDriverEntry.lib;$(DDK_LIB_PATH)\portcls.lib;$(DDK_LIB_PATH)\stdunk.lib;$(DDK_LIB_PATH)\libcntpr.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(WDKPATH)\lib\WIN7\amd64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <SubSystem>Native</SubSystem>
+      <Driver>Driver</Driver>
+      <EntryPointSymbol>DriverEntry</EntryPointSymbol>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
